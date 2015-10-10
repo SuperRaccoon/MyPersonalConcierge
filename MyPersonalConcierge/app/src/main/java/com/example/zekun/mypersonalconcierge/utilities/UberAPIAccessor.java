@@ -21,7 +21,10 @@ public class UberAPIAccessor {
 
         List<UberPriceEstimate> allPriceEstimates = new ArrayList<UberPriceEstimate>();
 
-        List<Destination> allDestinations = DestinationDatabaseAccessor.getAllDestinations();
+        DestinationDatabaseAccessor destinationDatabaseAccessor =
+                new EmptyDestinationDatabaseAccessor();
+
+        List<Destination> allDestinations = destinationDatabaseAccessor.getAllDestinations();
 
         for (Destination possibleDestination : allDestinations) {
             // Create a query for the current possible destination
