@@ -5,17 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 
@@ -34,22 +29,30 @@ public class OptionsPresentation extends ActionBarActivity {
 
 
         myUberClass myUberObj1 = new myUberClass();
-        myUberObj1.setDescCostName("Big C is a cool place to be",180, "Big C");
+        myUberObj1.setDescCostName("Big C is a cool place to be you plebs",180, "Big C",1234);
 
         myUberClass myUberObj2 = new myUberClass();
-        myUberObj2.setDescCostName("This place is not furd",20, "UC Berkeley");
+        myUberObj2.setDescCostName("This place is not furd",20, "UC Berkeley",0000);
 
 
+        ArrayList myArray = new ArrayList();
+
+        myArray.add(myUberObj1);
+        myArray.add(myUberObj2);
+
+        initializeList(this, myArray);
 
 
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_options_presentation, menu);
         return true;
     }
+    */
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -59,43 +62,21 @@ public class OptionsPresentation extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
             return true;
         }
+        */
 
         return super.onOptionsItemSelected(item);
     }
 
-    public void initializeList(Context myContext){
+    public void initializeList(Context myContext, ArrayList<myUberClass> myList){
 
         ViewGroup parent = (ViewGroup) findViewById(R.id.myScrollLinear);
         parent.removeAllViews();
 
 
-
-        //First we grab the file
-
-        File myFile = new File(myFileLocation);
-        ArrayList<myMusicClass> myList = new ArrayList<>();
-
-        if(myFile.exists() && !myFile.isDirectory()) {
-
-            try {
-                FileInputStream streamIn = new FileInputStream(myFileLocation);
-                ObjectInputStream objectinputstream = new ObjectInputStream(streamIn);
-                ArrayList<myMusicClass> retrievedList = (ArrayList) objectinputstream.readObject();
-                objectinputstream.close();
-                streamIn.close();
-
-                myList = retrievedList;
-                mySuperList = myList;
-
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-            }
-        }
 
 
 
@@ -106,12 +87,12 @@ public class OptionsPresentation extends ActionBarActivity {
 
         for (int e=0;e<myList.size();e++) {
 
-            myMusicClass myMusicObj = myList.get(e);
+            myUberClass myUberObj = myList.get(e);
 
-            String myArtist = myMusicObj.artist;
-            String mySong = myMusicObj.song;
-            String myAlbum = myMusicObj.album;
-            int myId = myMusicObj.id;
+            String myDestName = myUberObj.name;
+            String myDestDesc = myUberObj.description;
+            int myDestCost= myUberObj.cost;
+            int myId = myUberObj.id;
 
             /*Now we take care of setting it up visually
 
@@ -119,31 +100,20 @@ public class OptionsPresentation extends ActionBarActivity {
 
             parent = (ViewGroup) findViewById(R.id.myScrollLinear);
 
-            View view = LayoutInflater.from(myContext).inflate(R.layout.basic_song_unit, null);
+            View view = LayoutInflater.from(myContext).inflate(R.layout.my_options_layout, null);
+
+            final TextView myTitleText = (TextView) view.findViewById(R.id.titleTextView);
+            myTitleText.setText(myDestName);
 
             final TextView myTextview = (TextView) view.findViewById(R.id.displayWindow);
-            myTextview.setText("Artist: " + myArtist + "\nSong: " + mySong + "\nAlbum: " + myAlbum);
+            myTextview.setText(myDestDesc + "\n" + "Cost: " + myDestCost);
 
-            final TextView myIdHolder = (TextView) view.findViewById(R.id.idHolder);
-            myIdHolder.setText(Integer.toString(myId));
 
             final Button deleteButton = (Button) view.findViewById(R.id.button);
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (mySuperList != null) {
-                        for (int r = 0; r < mySuperList.size(); r++) {
-                            myMusicClass myCurrObj = (mySuperList.get(r));
-                            if (myCurrObj.id == Integer.parseInt((String) myIdHolder.getText())) {
-                                removeAtIndex(r);
-                            }
-                        }
-                        ((ViewManager) v.getParent()).removeView(myTextview);
-                        ((ViewManager) v.getParent()).removeView(deleteButton);
 
-
-                    }
-                    refresh();
                 }
 
             });

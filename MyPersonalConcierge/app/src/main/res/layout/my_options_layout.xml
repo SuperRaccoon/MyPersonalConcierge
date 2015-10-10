@@ -2,43 +2,60 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border">
+    >
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/idHolder"
-        android:layout_alignEnd="@+id/displayWindow" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/displayWindow"
-        android:background="@drawable/border"
-        android:textColor="#ff4d33ff"
-
+        android:textColor="#ff000000"
         android:ellipsize="none"
         android:maxLines="100"
         android:scrollHorizontally="false"
-        android:text="Dummy String"
-        android:textSize="50dp"
+        android:text="Dummy String asdfasd adfasdf asdfasdf adsfa"
+        android:textSize="25dp"
         android:textIsSelectable="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/button"
-        android:layout_alignBottom="@+id/button" />
+        android:layout_below="@+id/imageView"
+        android:singleLine="false"
+        android:layout_toStartOf="@+id/button" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/button"
-        android:background="@drawable/berkeleycampus"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/butlericon"
+        android:layout_alignTop="@+id/displayWindow"
         android:layout_alignParentEnd="true" />
 
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:id="@+id/imageView"
+        android:background="@drawable/berkeleycampus"
+        android:layout_below="@+id/titleTextView"
+        android:layout_alignEnd="@+id/button" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="myDestTitle"
+        android:id="@+id/titleTextView"
+        android:textSize="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentStart="true"
+        android:textColor="#ff000000"
+        android:singleLine="false"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:id="@+id/myImageBorder"
+        android:layout_below="@+id/displayWindow"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/button"
+        android:background="#ff000000"/>
 
 
 </RelativeLayout>
