@@ -1,7 +1,7 @@
 package com.example.zekun.mypersonalconcierge.utilities;
 
 public class UberAPIAccessor {
-    public static UberPriceEstimate estimatePrice(UberPriceEstimateQuery query) {
+    public static List<UberPriceEstimate> estimatePrice(UberPriceEstimateQuery query) {
         // TODO: implement this
     }
 
