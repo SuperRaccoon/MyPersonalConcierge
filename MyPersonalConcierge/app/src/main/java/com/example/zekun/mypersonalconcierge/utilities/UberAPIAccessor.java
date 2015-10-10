@@ -74,7 +74,7 @@ public class UberAPIAccessor {
         apiCall.append("end_longitude=");
         apiCall.append(Double.toString(query.getDestinationCoordinates().getLongitude()));
 
-        String parsedString = "";
+        String retrievedString = "";
 
         try {
             URL url = new URL(apiCall.toString());
@@ -87,15 +87,13 @@ public class UberAPIAccessor {
             httpConn.connect();
 
             InputStream is = httpConn.getInputStream();
-            parsedString = convertinputStreamToString(is);
+            retrievedString = convertinputStreamToString(is);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
 
-        // TODO: parse and stuff
-
-        return null;
+        return getEstimatesFromJSON(retrievedString, query);
     }
 
     public static List<UberPriceEstimate> getEstimatesFromJSON(String json,
@@ -144,7 +142,7 @@ public class UberAPIAccessor {
         }
     }
 
-    public static List<UberPriceEstimate> queryAllDestinations(Coordinates startCoordinates,
+    public void queryAllDestinations(Coordinates startCoordinates,
             Set<String> acceptableUberProductNames, List<UberPriceEstimate> results,
              final Runnable onFinishCallback) {
         // TODO: this will be really inefficient if there are tons of destinations
@@ -194,5 +192,18 @@ public class UberAPIAccessor {
         allQueries.toArray(new UberPriceEstimateQuery[]);
         // Start the AsyncTask, which will not block this thread, then return.
         new QueryAllDestinationsTask().execute(allQueries);
+    }
+
+    public static List<UberPriceEstimate> filterEstimatesByCost(List<UberPriceEstimate> estimates,
+                                                                Double maxCost) {
+        List<UberPriceEstimate> filteredEstimates = new ArrayList<UberPriceEstimate>();
+
+        for (UberPriceEstimate uberPriceEstimate : estimates) {
+            if (uberPriceEstimate.getCost() <= maxCost) {
+                filteredEstimates.add(uberPriceEstimate);
+            }
+        }
+
+        return filteredEstimates;
     }
 }
