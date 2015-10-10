@@ -4,7 +4,7 @@ public class UberPriceEstimate {
 
     private UberPriceEstimateQuery query; // The query that resulted in this estimate.
     private double cost; // TODO: localize currencies
-    private string uberProductName; // TODO: create an enum?
+    private String uberProductName; // TODO: create an enum?
 
     public UberPriceEstimate(UberPriceEstimateQuery query, double cost) {
         this.query = query;
