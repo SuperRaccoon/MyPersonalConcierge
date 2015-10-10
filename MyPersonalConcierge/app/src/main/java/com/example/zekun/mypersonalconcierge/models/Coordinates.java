@@ -13,7 +13,7 @@ public class Coordinates {
         return latitude;
     }
 
-    public duble getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 

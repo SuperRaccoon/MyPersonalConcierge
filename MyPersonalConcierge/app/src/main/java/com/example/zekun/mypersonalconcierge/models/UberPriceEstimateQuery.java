@@ -1,5 +1,7 @@
 package com.example.zekun.mypersonalconcierge.models;
 
+import java.util.Set;
+
 public class UberPriceEstimateQuery {
 
     private Coordinates startCoordinates;
@@ -26,11 +28,11 @@ public class UberPriceEstimateQuery {
     }
 
     // Convenience getters
-    public getDestinationCoordinates() {
+    public Coordinates getDestinationCoordinates() {
         return destination.getCoordinates();
     }
 
-    public getDestinationId() {
+    public int getDestinationId() {
         return destination.getId();
     }
 }

@@ -1,5 +1,7 @@
 package com.example.zekun.mypersonalconcierge.utilities;
 
+import com.example.zekun.mypersonalconcierge.models.Destination;
+
 import java.util.List;
 import java.util.ArrayList;
 
