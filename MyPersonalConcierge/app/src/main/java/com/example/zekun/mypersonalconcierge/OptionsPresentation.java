@@ -5,41 +5,28 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
 
-public class MainActivity extends ActionBarActivity {
+public class OptionsPresentation extends ActionBarActivity {
 
-    private EditText myBudget;
+    Integer myBudgetInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_options_presentation);
 
+        Intent myGivenInfo = getIntent();
 
-        myBudget = (EditText) findViewById(R.id.BudgetInputEditText);
+        myBudgetInt = Integer.parseInt(getIntent().getStringExtra("inputBudget"));
 
-
-
-        Button CalculateButton = (Button) findViewById(R.id.myButton);
-        CalculateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToShowPage();
-
-
-            }
-        });
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_options_presentation, menu);
         return true;
     }
 
@@ -56,13 +43,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void goToShowPage(){
-        Intent myIntentInfo= new Intent(this, OptionsPresentation.class);
-        String  myBudgetInt= myBudget.getText().toString();
-        myIntentInfo.putExtra("inputBudget", myBudgetInt);
-        startActivity(myIntentInfo);
-
     }
 }
