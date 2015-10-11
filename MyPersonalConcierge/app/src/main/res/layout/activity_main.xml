@@ -1,9 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="#1c1e27">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +18,8 @@
         android:textSize="20dp"
         android:layout_marginTop="55dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#949191" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +28,8 @@
         android:id="@+id/PromptMessage"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:textColor="#949191" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -31,18 +37,31 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/BudgetInputEditText"
-        android:layout_below="@+id/PromptMessage"
-        android:layout_alignStart="@+id/PromptMessage"
         android:layout_marginTop="49dp"
-        android:text="$" />
+        android:textAlignment="center"
+        android:layout_below="@+id/PromptMessage"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textColor="#949191" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Make My Day"
         android:id="@+id/myButton"
+        android:focusableInTouchMode="true"
         android:layout_below="@+id/BudgetInputEditText"
         android:layout_centerHorizontal="true"
-        android:focusableInTouchMode="true" />
+        android:background="#4c4a4a" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="$"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/BudgetInputEditText"
+        android:layout_toStartOf="@+id/PromptMessage"
+        android:textColor="#949191" />
 
 </RelativeLayout>
