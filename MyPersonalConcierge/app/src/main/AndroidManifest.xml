@@ -24,6 +24,10 @@
             android:name=".OptionsPresentation"
             android:label="Locations in Your Budget" >
         </activity>
+        <activity
+            android:name=".RecommendActivity"
+            android:label="Recommend a Place!" >
+        </activity>
     </application>
 
 </manifest>

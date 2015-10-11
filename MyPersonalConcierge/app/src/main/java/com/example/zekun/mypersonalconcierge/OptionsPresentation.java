@@ -1,6 +1,9 @@
 package com.example.zekun.mypersonalconcierge;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -39,7 +42,12 @@ public class OptionsPresentation extends ActionBarActivity  {
     String start_longitude = "-122.2536";
     Destination destinations[] = {new Destination("UC Berkeley", "The number one public university in the world. Go Bears!","37.8545738", "-122.2918573", R.drawable.berkeleycampus),
             new Destination("Pappy's Sports Bar","Great place to grab a casual drink with student discounts","37.9045738", "-122.2818573", R.drawable.pappysimage),
-      
+            new Destination("Lombard Street", "World Famous Lombard Stret in San Francisco is known for being the 'Crookedest Street in the World'","37.8019" , "-122.4189", R.drawable.lombard),
+            new Destination("Golden Gate Bridge", "The World Famous Golden Gate Bridge in San Francisco was the longest suspension bridge in the world at the time it was built, a classic California icon.", "37.7697", " -122.4769", R.drawable.goldengate),
+            new Destination("Fox Theater", "The Fox Theater in Oakland has regularly scheduled performances from big name stars such as Macklemore and FUN", "37.8089","122.2692", R.drawable.foxtheater),
+            new Destination("The Fillmore", "Regularly scheduled performances from big names","37.7841", "122.4331",R.drawable.thefillmore ),
+            new Destination("Berkeley Botanical Gardens", "Beautiful gardens and grooves maintained by UC Berkeley", "37.87515", "-122.239", R.drawable.botanicalgarden),
+            new Destination("Fisherman's Wharf", "San Francisco's most vibrant part of the docks, a populat tourist destination", "37.8083","122.4156",R.drawable.fishermanswharf)
     };
 
 
@@ -207,13 +215,13 @@ public class OptionsPresentation extends ActionBarActivity  {
             myTitleText.setText(myDestName);
 
             final TextView myTextview = (TextView) view.findViewById(R.id.displayWindow);
-            myTextview.setText(myDestDesc + "\n" + "Cost for Uber (Each Way): " + myDestCost);
+            myTextview.setText(myDestDesc + "\n" + "Cost for Uber: " + myDestCost);
 
             final TextView myIdHolder = (TextView) view.findViewById(R.id.idHolder);
             myIdHolder.setText(Integer.toString(myId));
 
 
-
+            final Context Cont = myContext;
             final Button deleteButton = (Button) view.findViewById(R.id.button);
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -223,7 +231,9 @@ public class OptionsPresentation extends ActionBarActivity  {
                             myUberClass myCurrObj = (mySuperList.get(r));
                             if (myCurrObj.id == Integer.parseInt((String) myIdHolder.getText())) {
                                 myUberClass myChosenDestObj = idObjLookup(myId);
-                                label.setText("Calling an uber to take you to " + myChosenDestObj.name);
+                                label.setText("Calling an Uber to take you to " + myChosenDestObj.name);
+
+                                uberThatShit(myChosenDestObj,Cont);
                             }
                         }
 
@@ -251,6 +261,26 @@ public class OptionsPresentation extends ActionBarActivity  {
         }
 
         return myCurrObj1;
+    }
+
+    public void uberThatShit(myUberClass cls, Context context){
+        try {
+            PackageManager pm = context.getPackageManager();
+            pm.getPackageInfo("com.ubercab", PackageManager.GET_ACTIVITIES);
+            String uri =
+                    "uber://?action=setPickup&pickup=my_location";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(uri));
+            startActivity(intent);
+        } catch (PackageManager.NameNotFoundException e) {
+            // No Uber app! Open mobile website.
+            String url =
+                    "https://m.uber.com/sign-up?client_id=Cus8bHNgw3ZEEHWTj5_lPYa77ovEPLMW";
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+
     }
 
 }

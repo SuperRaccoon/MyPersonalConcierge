@@ -21,8 +21,8 @@
         android:layout_toStartOf="@+id/button" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/button"
         android:background="@drawable/butlericon"
         android:layout_alignTop="@+id/displayWindow"

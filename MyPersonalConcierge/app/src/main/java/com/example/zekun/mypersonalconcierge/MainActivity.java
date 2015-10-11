@@ -35,6 +35,16 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        Button RecommendButton = (Button) findViewById(R.id.recommendButton);
+        RecommendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToShowRecPage();
+
+
+            }
+        });
+
     }
 
     @Override
@@ -64,6 +74,12 @@ public class MainActivity extends ActionBarActivity {
         String  myBudgetInt= myBudget.getText().toString();
         myIntentInfo.putExtra("inputBudget", myBudgetInt);
         startActivity(myIntentInfo);
+
+    }
+    public void goToShowRecPage(){
+        Intent myIntentInfo2= new Intent(this, RecommendActivity.class);
+
+        startActivity(myIntentInfo2);
 
     }
 }

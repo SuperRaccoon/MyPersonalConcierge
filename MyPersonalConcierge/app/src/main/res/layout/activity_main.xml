@@ -53,8 +53,7 @@
         android:focusableInTouchMode="true"
         android:background="#878787"
         android:layout_below="@+id/BudgetInputEditText"
-        android:layout_toEndOf="@+id/textView2"
-        android:layout_marginTop="42dp" />
+        android:layout_alignStart="@+id/BudgetInputEditText" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,6 +72,15 @@
         android:id="@+id/stayInButton"
         android:layout_alignTop="@+id/myButton"
         android:layout_alignEnd="@+id/PromptMessage"
+        android:background="#878787"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recommend A Place!"
+        android:id="@+id/recommendButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:background="#878787"/>
 
 </RelativeLayout>
