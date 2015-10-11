@@ -1,8 +1,6 @@
 package com.example.zekun.mypersonalconcierge;
 
 import android.content.Context;
-import android.content.Intent;
-import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -31,8 +29,6 @@ import java.util.ArrayList;
 public class OptionsPresentation extends ActionBarActivity  {
 
     Integer myBudgetInt;
-    private Location myLocation;
-    private String myLocationString;
     public static ArrayList<myUberClass> mySuperList;
 
 
@@ -40,13 +36,13 @@ public class OptionsPresentation extends ActionBarActivity  {
     String server_id = "$SECRET";
     String start_latitude = "37.8668";
     String start_longitude = "-122.2536";
-    Destination destinations[] = {new Destination("test_name", "test_desc","37.8545738", "-122.2918573" , ""),
+    Destination destinations[] = {new Destination("test_name", "test_desc","37.8545738", "-122.2918573"),
             new Destination("test_name2",
-                    "test_desc2","37.9045738", "-122.2818573", "" ),
+                    "test_desc2","37.9045738", "-122.2818573" ),
             new Destination("test_name3",
-                    "test_desc2","37.8045738", "-122.3018573","" ),
+                    "test_desc2","37.8045738", "-122.3018573" ),
             new Destination("test_name4",
-                    "test_desc2","37.9145738", "-122.7818573","" )};
+                    "test_desc2","37.9145738", "-122.7818573" )};
 
 
     @Override
@@ -59,11 +55,11 @@ public class OptionsPresentation extends ActionBarActivity  {
 
         //START THE GOOGLE LOCATION SERVICES
 
-
+        
 
 
         //PARSE THE USER SUBMITTED INFO FROM THE INTENT
-        Intent myGivenInfo = getIntent();
+       // Intent myGivenInfo = getIntent();
 
         myBudgetInt = Integer.parseInt(getIntent().getStringExtra("inputBudget"));
 
@@ -79,7 +75,7 @@ public class OptionsPresentation extends ActionBarActivity  {
     private class UBERLookup extends AsyncTask<Destination, Integer, ArrayList<Destination>> {
         //coords = {end lat, end long}
         protected ArrayList<Destination> doInBackground(Destination... dest) {
-            ArrayList<Destination> finalDest = new ArrayList<Destination>();
+            ArrayList<Destination> finalDest = new ArrayList<>();
             for(Destination destination : dest){
 
 
@@ -120,7 +116,7 @@ public class OptionsPresentation extends ActionBarActivity  {
 
 
         protected void onPostExecute(ArrayList<Destination> result) {
-            ArrayList<Destination> pass = new ArrayList<Destination>();
+            ArrayList<Destination> pass = new ArrayList<>();
             for(Destination dest : result){
 
                 int price = Integer.parseInt(dest.getPrice().substring(dest.getPrice().indexOf('-') + 1));

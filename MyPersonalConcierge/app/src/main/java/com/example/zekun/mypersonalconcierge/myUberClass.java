@@ -1,8 +1,5 @@
 package com.example.zekun.mypersonalconcierge;
 
-/**
- * Created by Zekun on 10/10/2015.
- */
 public class myUberClass {
 
     String name;

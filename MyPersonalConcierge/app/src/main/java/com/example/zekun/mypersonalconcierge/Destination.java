@@ -7,11 +7,11 @@ public class Destination {
     private String lon;
     private String lat;
     private String price;
-    private String url;
+    //private String url;
 
-    public String getURL(){
+    /*public String getURL(){
         return url;
-    }
+    }*/
     public String getLon() {
         return lon;
     }
@@ -40,11 +40,11 @@ public class Destination {
     }
 
     public Destination(String name, String description, String lat,
-                       String lon,String url) {
+                       String lon){//, String url) {
         this.name = name;
         this.description = description;
         this.lon = lon;
         this.lat=lat;
-        this.url=url;
+        //this.url=url;
     }
 }
