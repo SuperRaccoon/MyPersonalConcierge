@@ -39,7 +39,7 @@ public class OptionsPresentation extends ActionBarActivity  {
     String start_longitude = "-122.2536";
     Destination destinations[] = {new Destination("UC Berkeley", "The number one public university in the world. Go Bears!","37.8545738", "-122.2918573", R.drawable.berkeleycampus),
             new Destination("Pappy's Sports Bar","Great place to grab a casual drink with student discounts","37.9045738", "-122.2818573", R.drawable.pappysimage),
-        new Destination()
+      
     };
 
 
