@@ -7,6 +7,7 @@ public class Destination {
     private String lon;
     private String lat;
     private String price;
+    private int drawableId;
     //private String url;
 
     /*public String getURL(){
@@ -24,6 +25,7 @@ public class Destination {
     public String getPrice() {
         return price;
     }
+    public int getDrawableID() {return drawableId; }
 
     public String getDescription() {
         return description;
@@ -40,11 +42,12 @@ public class Destination {
     }
 
     public Destination(String name, String description, String lat,
-                       String lon){//, String url) {
+                       String lon, int drawableId){//, String url) {
         this.name = name;
         this.description = description;
         this.lon = lon;
         this.lat=lat;
+        this.drawableId = drawableId;
         //this.url=url;
     }
 }
