@@ -22,10 +22,11 @@ public class Destination {
     public String getName() {
         return name;
     }
+    public int getDrawableID() {return drawableId;}
     public String getPrice() {
         return price;
     }
-    public int getDrawableID() {return drawableId; }
+    //public int getDrawableID() {return drawableId; }
 
     public String getDescription() {
         return description;

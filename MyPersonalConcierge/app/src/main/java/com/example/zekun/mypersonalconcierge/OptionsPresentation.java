@@ -34,15 +34,13 @@ public class OptionsPresentation extends ActionBarActivity  {
 
 
     static TextView label;
-    String server_id = "$SECRET";
+    String server_id = "7UB1w9eL1gz6_228W70N02oQFlU89HX5IR2Kjj5f";
     String start_latitude = "37.8668";
     String start_longitude = "-122.2536";
-    Destination destinations[] = {
-            new Destination("Pappy's Sports Bar",
-                    "Great place to grab a casual drink with friends, with awesome student discounts","37.9045738", "-122.2818573", R.drawable.pappysimage),
-            new Destination("UC Berkeley",
-                    "Best public university in the world! Go Bears!","37.8045738", "-122.3018573", R.drawable.berkeleycampus ),
-            };
+    Destination destinations[] = {new Destination("UC Berkeley", "The number one public university in the world. Go Bears!","37.8545738", "-122.2918573", R.drawable.berkeleycampus),
+            new Destination("Pappy's Sports Bar","Great place to grab a casual drink with student discounts","37.9045738", "-122.2818573", R.drawable.pappysimage),
+        new Destination()
+    };
 
 
     @Override
@@ -192,7 +190,7 @@ public class OptionsPresentation extends ActionBarActivity  {
             String myDestDesc = myUberObj.description;
             String myDestCost= myUberObj.cost;
             final int myId = myUberObj.id;
-            int myDrawable = myUberObj.myDrawableID;
+            Integer myDrawable = myUberObj.myDrawableID;
 
             /*Now we take care of setting it up visually
 
@@ -202,14 +200,14 @@ public class OptionsPresentation extends ActionBarActivity  {
 
             View view = LayoutInflater.from(myContext).inflate(R.layout.my_options_layout, null);
 
-            ImageView layout =(ImageView)findViewById(R.id.imageView);
+            ImageView layout =(ImageView)view.findViewById(R.id.myImageView);
             layout.setBackgroundResource(myDrawable);
 
             final TextView myTitleText = (TextView) view.findViewById(R.id.titleTextView);
             myTitleText.setText(myDestName);
 
             final TextView myTextview = (TextView) view.findViewById(R.id.displayWindow);
-            myTextview.setText(myDestDesc + "\n" + "Cost: " + myDestCost);
+            myTextview.setText(myDestDesc + "\n" + "Cost for Uber (Each Way): " + myDestCost);
 
             final TextView myIdHolder = (TextView) view.findViewById(R.id.idHolder);
             myIdHolder.setText(Integer.toString(myId));
@@ -225,7 +223,7 @@ public class OptionsPresentation extends ActionBarActivity  {
                             myUberClass myCurrObj = (mySuperList.get(r));
                             if (myCurrObj.id == Integer.parseInt((String) myIdHolder.getText())) {
                                 myUberClass myChosenDestObj = idObjLookup(myId);
-                                label.setText("Calling an Uber to take you to " + myChosenDestObj.name);
+                                label.setText("Calling an uber to take you to " + myChosenDestObj.name);
                             }
                         }
 

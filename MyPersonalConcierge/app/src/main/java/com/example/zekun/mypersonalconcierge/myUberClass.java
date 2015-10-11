@@ -8,13 +8,13 @@ public class myUberClass {
     int id;
     int myDrawableID;
 
-    public myUberClass(String inputDesc, String inputCost, String inputName, int inputID, int inputDrawableID){
+    public myUberClass(String inputDesc, String inputCost, String inputName, int inputID, int myDrawableID1){
 
         this.description = inputDesc;
         this.cost = inputCost;
         this.name = inputName;
         this.id = inputID;
-        this.myDrawableID = inputDrawableID;
+        this.myDrawableID = myDrawableID1;
     }
 
 }
