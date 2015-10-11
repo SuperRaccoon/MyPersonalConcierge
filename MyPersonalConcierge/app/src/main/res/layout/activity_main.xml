@@ -19,7 +19,7 @@
         android:layout_marginTop="55dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
-        android:textColor="#949191" />
+        android:textColor="#c4c3c3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"
-        android:textColor="#949191" />
+        android:textColor="#c4c3c3" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -42,7 +42,8 @@
         android:layout_below="@+id/PromptMessage"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:textColor="#949191" />
+        android:textColor="#c4c3c3"
+        android:maxLength="5" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,7 +53,7 @@
         android:focusableInTouchMode="true"
         android:layout_below="@+id/BudgetInputEditText"
         android:layout_centerHorizontal="true"
-        android:background="#4c4a4a" />
+        android:background="#878787" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,6 +63,6 @@
         android:id="@+id/textView2"
         android:layout_alignTop="@+id/BudgetInputEditText"
         android:layout_toStartOf="@+id/PromptMessage"
-        android:textColor="#949191" />
+        android:textColor="#c4c3c3" />
 
 </RelativeLayout>

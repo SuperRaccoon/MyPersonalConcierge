@@ -6,23 +6,16 @@ package com.example.zekun.mypersonalconcierge;
 public class myUberClass {
 
     String name;
-
     String description;
-
-    int cost;
-
+    String cost;
     int id;
 
-
-
-
-    public void setDescCostName(String inputDesc, int inputCost, String inputName, int inputID){
+    public myUberClass(String inputDesc, String inputCost, String inputName, int inputID){
 
         this.description = inputDesc;
         this.cost = inputCost;
         this.name = inputName;
         this.id = inputID;
     }
-
 
 }
