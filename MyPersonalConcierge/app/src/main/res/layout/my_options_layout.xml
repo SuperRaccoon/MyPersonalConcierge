@@ -57,5 +57,15 @@
         android:layout_alignEnd="@+id/button"
         android:background="#ff000000"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/idHolder"
+        android:layout_alignTop="@+id/displayWindow"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/displayWindow" />
+
 
 </RelativeLayout>
