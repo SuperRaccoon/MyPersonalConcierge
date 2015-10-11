@@ -159,7 +159,7 @@ public class OptionsPresentation extends ActionBarActivity  {
                                 label.setText("You picked " + myChosenDestObj.name);
                             }
                         }
-                        
+
 
 
                     }
